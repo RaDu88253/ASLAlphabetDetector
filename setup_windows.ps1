@@ -1,11 +1,14 @@
+#Python executable name. MediaPipe is only compatible with Python 3.9 - 3.12
+$python = "python3.12"
+
 # Check if Python 3 is installed
-if (-not (Get-Command python3 -ErrorAction SilentlyContinue)) {
+if (-not (Get-Command $python -ErrorAction SilentlyContinue)) {
     Write-Host "Python could not be found. Please install Python 3 to proceed."
     exit 1
 }
 
 # Create a virtual environment named 'venv'
-python3 -m venv .venv
+& $python -m venv .venv
 Write-Host "Virtual environment '.venv' created."
 
 # Activate the virtual environment
@@ -30,4 +33,11 @@ if (Test-Path "requirements.txt") {
     Write-Host "Dependencies from requirements.txt installed."
 } else {
     Write-Host "requirements.txt file not found. Please create one to install dependencies."
+}
+
+if (Test-Path "download_model.py") {
+    python download_model.py
+    Write-Host "Hand landmarker model downloaded."
+} else {
+    Write-Host "download_model.py file not found. Please create one to download the required model."
 }

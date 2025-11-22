@@ -1,2 +1,4 @@
 .venv/
 .idea/
+hand_landmarker.task
+test.py
