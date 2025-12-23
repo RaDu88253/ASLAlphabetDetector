@@ -1,4 +1,8 @@
 .venv/
+.vscode/
 .idea/
 hand_landmarker.task
-test.py
+test/
+datasets/
+raw_data/
+.env
