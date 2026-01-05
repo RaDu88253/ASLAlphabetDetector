@@ -6,9 +6,9 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 load_dotenv()
-FILE_NAME = "a.txt"
+FILE_NAME = "y.txt"
 RAW_DATA_FILE_PATH = Path(os.environ['RAW_DATA_FOLDER']) / FILE_NAME
-NUMBER_OF_FRAMES = 1000
+NUMBER_OF_FRAMES = 100
 MAX_BUFFER_LENGTH = 100
 
 BaseOptions = mp.tasks.BaseOptions
@@ -24,7 +24,7 @@ with open(RAW_DATA_FILE_PATH, 'w') as f:
 
 
 options = HandLandmarkerOptions(
-    base_options=BaseOptions(model_asset_path='hand_landmarker.task'),
+    base_options=BaseOptions(model_asset_path='models/hand_landmarker.task'),
     running_mode=VisionRunningMode.VIDEO,
     num_hands=2
 )

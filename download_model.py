@@ -4,6 +4,6 @@ url = "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_land
 
 with requests.get(url, stream=True) as r:
     r.raise_for_status()
-    with open("hand_landmarker.task", "wb") as f:
+    with open("models/hand_landmarker.task", "wb") as f:
         for chunk in r.iter_content(chunk_size=8192):
             f.write(chunk)
